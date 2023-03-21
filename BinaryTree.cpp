@@ -38,11 +38,33 @@ void BinaryTree::addNode(int data) {
 
 void BinaryTree::preOrderTraversal(Node* focusNode) {
 	if (focusNode != nullptr) {
-	std::cout << focusNode->data << " "<< endl;
-	preOrderTraversal(focusNode->left);
-	preOrderTraversal(focusNode->right);
+		std::cout << focusNode->data << " "<< endl;
+		preOrderTraversal(focusNode->left);
+		preOrderTraversal(focusNode->right);
 	}
 }
+
+void BinaryTree::InClassPrint(Node* focusNode) {
+	if (focusNode != nullptr) {
+		std::cout << focusNode->data << " "<< endl;
+	}
+	cout << focusNode ->data << "(";
+	if(focusNode->left){
+		cout << focusNode->left->data;
+	}
+	cout << ",";
+	if(focusNode->right){
+		cout << focusNode->right->data;
+	}
+	cout << ")";
+	InClassPrint(focusNode->left);
+	InClassPrint(focusNode->right);
+
+
+}
+
+
+
 
 void BinaryTree::search(Node* &cur, int item, Node* &parent)  {  
     while (cur != NULL && cur->data != item)  
@@ -158,11 +180,26 @@ void BinaryTree::display(Node* p, int indent)
         if (indent) {
             std::cout << std::setw(indent) << ' ';
         }
-        if (p->right) std::cout<<" /\n" << std::setw(indent) << ' ';
-        std::cout<< p->data << "\n ";
+        if (p->right){
+			std::cout<<" /\n" << std::setw(indent) << ' ';
+        	
+		}
+		std::cout<< p->data << "\n ";
         if(p->left) {
             std::cout << std::setw(indent) << ' ' <<" \\\n";
             BinaryTree::display(p->left, indent+4);
         }
     }
+}
+
+int BinaryTree::height(Node* current, int* right){
+
+	if(current->left && current->right){
+		return 1;
+	}
+
+
+
+
+
 }

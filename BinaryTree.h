@@ -22,6 +22,7 @@ void preOrderTraversal(Node*);
 void deletion(Node*& , int );
 void search(Node*& , int, Node*& );  
 void display( Node* ,int);
+void InClassPrint(Node* focusNode);
 
 };
 

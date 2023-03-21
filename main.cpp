@@ -13,7 +13,8 @@ tree.addNode(43);
 tree.addNode(30);
 
 tree.preOrderTraversal(tree.root);
-tree.display(tree.root,6);
+tree.display(tree.root,20);
+tree.InClassPrint(tree.root);
 
 return 0;
 }
